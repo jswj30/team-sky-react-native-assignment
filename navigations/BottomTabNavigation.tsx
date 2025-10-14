@@ -51,8 +51,8 @@ export default function BottomTabNavigation() {
         tabBarLabelPosition: "below-icon",
         tabBarStyle: styles.tabBarStyle,
         tabBarLabelStyle: styles.tabBarLabelStyle,
-        tabBarActiveTintColor: defaultColor.black,
-        tabBarInactiveTintColor: defaultColor.gray1,
+        tabBarActiveTintColor: defaultColor.tabBarActiveTintColor,
+        tabBarInactiveTintColor: defaultColor.tabBarInactiveTintColor,
         tabBarIcon: ({ focused }: { focused: boolean }) =>
           tabBarIcon(route, focused),
       })}
