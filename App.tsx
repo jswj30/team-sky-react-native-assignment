@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 export default function App() {
   const [fontsLoaded] = useFonts({
     "SUIT-Regular": require("./assets/fonts/SUIT-Regular.otf"),
+    "SUIT-Bold": require("./assets/fonts/SUIT-Bold.otf"),
   });
 
   if (!fontsLoaded) {
