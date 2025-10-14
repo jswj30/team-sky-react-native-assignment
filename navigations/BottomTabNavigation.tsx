@@ -48,6 +48,7 @@ export default function BottomTabNavigation() {
         route: RouteProp<BottomTabParamList, keyof BottomTabParamList>;
       }) => ({
         headerShown: false,
+        tabBarLabelPosition: "below-icon",
         tabBarStyle: styles.tabBarStyle,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarActiveTintColor: defaultColor.black,
