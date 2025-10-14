@@ -1,8 +1,11 @@
 import { useCallback } from "react";
-import { StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet, Pressable, Text, useWindowDimensions } from "react-native";
 import { defaultColor } from "../../../assets/modules/defaultColor";
+import { IS_PHONE } from "../../../assets/modules/commonModules";
 
 export default function SearchButton({ searchValue }: { searchValue: string }) {
+  const { width } = useWindowDimensions();
+
   const onPressSearchButton = useCallback(() => {
     alert(searchValue);
   }, [searchValue]);
@@ -11,7 +14,11 @@ export default function SearchButton({ searchValue }: { searchValue: string }) {
 
   return (
     <Pressable
-      style={[styles.searchButton, disabled && { opacity: 0.43 }]}
+      style={[
+        styles.searchButton,
+        width <= IS_PHONE && styles.searchButtonPhone,
+        disabled && { opacity: 0.43 },
+      ]}
       onPress={onPressSearchButton}
       disabled={disabled}
     >
@@ -28,6 +35,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
+  },
+  searchButtonPhone: {
+    width: 340,
   },
   searchButtonText: {
     fontFamily: "SUIT-Medium",

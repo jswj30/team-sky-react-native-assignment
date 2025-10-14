@@ -6,9 +6,11 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  useWindowDimensions,
 } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import { defaultColor } from "../../assets/modules/defaultColor";
+import { IS_PHONE } from "../../assets/modules/commonModules";
 import SearchIcon from "../../components/SearchIcon";
 import QuitIconSection from "./components/QuitIconSection";
 import SearchButton from "./components/SearchButton";
@@ -18,6 +20,8 @@ import SearchInput from "./components/SearchInput";
 export default function SearchScreen() {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
+
+  const { width } = useWindowDimensions();
 
   useFocusEffect(
     useCallback(() => {
@@ -45,10 +49,13 @@ export default function SearchScreen() {
         >
           <View style={styles.searchSection}>
             <View
-              style={[styles.searchInputSection, isFocused && styles.isFocused]}
+              style={[
+                styles.searchInputSection,
+                width <= IS_PHONE && styles.searchInputSectionPhone,
+                isFocused && styles.isFocused,
+              ]}
             >
               <SearchIcon />
-
               <SearchInput
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
@@ -91,6 +98,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     boxShadow: "0px 3.46px 20.76px 0px rgba(0, 0, 0, 0.05)",
+  },
+  searchInputSectionPhone: {
+    width: 340,
   },
   isFocused: {
     borderColor: defaultColor.blue1,

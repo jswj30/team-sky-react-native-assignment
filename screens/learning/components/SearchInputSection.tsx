@@ -1,12 +1,15 @@
 import { useCallback } from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../types/type_list";
 import { defaultColor } from "../../../assets/modules/defaultColor";
+import { IS_PHONE } from "../../../assets/modules/commonModules";
 import SearchIcon from "../../../components/SearchIcon";
 
 export default function SearchInputSection() {
+  const { width } = useWindowDimensions();
+
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -15,7 +18,10 @@ export default function SearchInputSection() {
   }, []);
 
   return (
-    <Pressable style={styles.container} onPress={onPressInputSection}>
+    <Pressable
+      style={[styles.container, width <= IS_PHONE && styles.containerPhone]}
+      onPress={onPressInputSection}
+    >
       <SearchIcon />
       <Text style={styles.searchInput}>궁금한 이론이 있다면 검색해보세요.</Text>
     </Pressable>
@@ -35,6 +41,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
     boxShadow: "0px 3.46px 20.76px 0px rgba(0, 0, 0, 0.05)",
+  },
+  containerPhone: {
+    width: 340,
   },
   searchInput: {
     fontFamily: "SUIT-Bold",

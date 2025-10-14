@@ -1,13 +1,22 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, useWindowDimensions, View } from "react-native";
+import { defaultColor } from "../../assets/modules/defaultColor";
+import { IS_PHONE } from "../../assets/modules/commonModules";
 import SearchInputSection from "./components/SearchInputSection";
 import bannerImage from "../../assets/images/learning/banner_image.jpg";
-import { defaultColor } from "../../assets/modules/defaultColor";
 
 export default function LearningScreen() {
+  const { width } = useWindowDimensions();
+
   return (
     <View style={styles.container}>
       <SearchInputSection />
-      <Image source={bannerImage} style={styles.bannerImage} />
+      <Image
+        source={bannerImage}
+        style={[
+          styles.bannerImage,
+          width <= IS_PHONE && styles.bannerImagePhone,
+        ]}
+      />
     </View>
   );
 }
@@ -24,5 +33,9 @@ const styles = StyleSheet.create({
     width: 545,
     height: 198,
     borderRadius: 16,
+  },
+  bannerImagePhone: {
+    width: 340,
+    height: 124,
   },
 });

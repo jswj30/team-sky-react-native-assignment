@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useCallback, useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, useWindowDimensions } from "react-native";
 import { defaultColor } from "../../../assets/modules/defaultColor";
+import { IS_PHONE } from "../../../assets/modules/commonModules";
 
 export default function SearchInput({
   searchValue,
