@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigation from "./navigations/RootNavigation";
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -13,6 +14,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      <StatusBar style="dark" />
       <RootNavigation />
     </NavigationContainer>
   );
