@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
+    boxShadow: "0px 3.46px 20.76px 0px rgba(0, 0, 0, 0.05)",
   },
   searchIcon: {
     width: 24,
