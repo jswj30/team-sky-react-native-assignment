@@ -8,6 +8,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     "SUIT-Regular": require("./assets/fonts/SUIT-Regular.otf"),
     "SUIT-Bold": require("./assets/fonts/SUIT-Bold.otf"),
+    "SUIT-Medium": require("./assets/fonts/SUIT-Medium.otf"),
   });
 
   if (!fontsLoaded) {
