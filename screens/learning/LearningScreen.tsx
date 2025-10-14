@@ -1,6 +1,7 @@
 import { Image, StyleSheet, View } from "react-native";
-import bannerImage from "../../assets/images/learning/banner_image.jpg";
 import SearchInputSection from "./components/SearchInputSection";
+import bannerImage from "../../assets/images/learning/banner_image.jpg";
+import { defaultColor } from "../../assets/modules/defaultColor";
 
 export default function LearningScreen() {
   return (
@@ -13,7 +14,7 @@ export default function LearningScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: defaultColor.white,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
