@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { defaultColor } from "../../assets/modules/defaultColor";
 
 export default function MyStudyScreen() {
   return (
@@ -10,7 +11,7 @@ export default function MyStudyScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: defaultColor.white,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
