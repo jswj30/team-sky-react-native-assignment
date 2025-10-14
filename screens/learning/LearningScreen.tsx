@@ -1,6 +1,6 @@
 import { Image, StyleSheet, View } from "react-native";
 import bannerImage from "../../assets/images/learning/banner_image.jpg";
-import SearchInputSection from "./components/searchInputSection";
+import SearchInputSection from "./components/SearchInputSection";
 
 export default function LearningScreen() {
   return (
