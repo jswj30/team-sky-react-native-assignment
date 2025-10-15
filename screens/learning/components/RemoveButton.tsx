@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useCallback } from "react";
 import { StyleSheet, Image, Pressable } from "react-native";
-import removeIcon from "../../../assets/images/search/remove_icon.png";
+import removeIcon from "../../../assets/images/learning/remove_icon.png";
 
 export default function RemoveButton({
   setSearchValue,
